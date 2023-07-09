@@ -25,11 +25,6 @@ describe('POST /textEffect', () => {
         })
         expect(response.status).toBe(200)
         expect(response.body.status).toBe('SUCCESS')
-        /*expect(response.body.command).toBe('fmpeg -i test_input1.mp4 -vf \
-        drawtext=\"enable=\'between(t,23.0,40.0)\' \
-        :text=\' \“I\’m sOoOo good at this game! xD\” \' \
-        :fontsize=0xFFFFFF:fontsize=64:\
-        x=100:y=200\" test_output1.mp4')*/
     })
 
 
@@ -84,5 +79,53 @@ describe('POST /textEffect', () => {
        expect(response.body.message).toBe('Invalid X,Y coordinate')
     })
 
+    // it should return 400
+    // it should return status ERROR
+    // it should return message Text string is not defined
 
+    it('Text object without string text field', async () => {
+        const response = await request.post('/textEffect').send({
+           "video": {
+               "Input video path" :"test_input1.mp4", 
+               "Duration": "60.0 s", 
+               "Resolution": "1920 x 1080", 
+               "Output video path": "test_output1.mp4"},
+
+           "text":{
+               "X, Y": "200, 100", 
+               "Font Size": "64",
+               "Font Color": "0xFFFFFF", 
+               "Start Time": "23.0 s", 
+               "End Time": "40.0 s"}
+       
+       })
+       expect(response.status).toBe(400)
+       expect(response.body.status).toBe('ERROR')
+       expect(response.body.message).toBe('Text string is not defined')
+    })
+
+    // it should return 400
+    // it should return status ERROR
+    // it should return message Video input is not defined
+
+    it('Video object without Video input path', async () => {
+        const response = await request.post('/textEffect').send({
+           "video": {
+               "Duration": "60.0 s", 
+               "Resolution": "1920 x 1080", 
+               "Output video path": "test_output1.mp4"},
+
+           "text":{
+               "X, Y": "200, 100", 
+               "Font Size": "64",
+               "Font Color": "0xFFFFFF", 
+               "Start Time": "23.0 s", 
+               "End Time": "40.0 s"}
+       
+       })
+       expect(response.status).toBe(400)
+       expect(response.body.status).toBe('ERROR')
+       expect(response.body.message).toBe('Video input is not defined')
+    })
+        
 })
