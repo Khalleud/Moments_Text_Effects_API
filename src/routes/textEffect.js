@@ -58,14 +58,7 @@ textEffectRouter.post('/', validateParams , (req, res) => {
             'message': error.message,
             'status': 'ERROR'
         });
-    }
-    /*const command = 'ffmpeg -i ' + video['Input video path'] + ' -vf \
-     drawtext=\"enable=\'between(t,'+timeParser(text['Start Time'])+','+ timeParser(text['End Time']) + ')\' \
-     :text=\' ' + text['Text String'] + ' \' \
-     :fontsize='+ text['Font Color'] +':fontsize='+ text['Font Size']+':\
-     x='+ coordinatesParser(text["X, Y"])[0] +':y='+ coordinatesParser(text["X, Y"])[1] +'" '+ video['Output video path']+''*/
-    
-  
+    }   
 });
 
 

@@ -62,13 +62,7 @@ class textEffectCommandBuilder{
         this.command.str = this.command.str + 'drawtext=\"enable=\'between(t,'+ startTime + ',' + endTime + ')\''
         return this
     }
-    /*setEndTime(endTime){
-        if (typeof endTime == 'undefined'){
-                    throw new Error('End time is not defined')
-                }
-        this.command.endTime = endTime
-        return this
-    }*/
+    
     setXY(x,y){
         if (typeof x == 'undefined'){
             throw new Error('X is not defined')
@@ -84,15 +78,7 @@ class textEffectCommandBuilder{
         this.command.str = this.command.str + ':x='+ x +':y='+ y +'" '
         return this
     }
-    /*setY(y){
-        if (typeof y == 'undefined'){
-            throw new Error('Y is not defined')
-            }
-        this.command.y = y
-        return this
-    }*/
-    build(){
-        
+    build(){    
         return this.command
     }
 }
