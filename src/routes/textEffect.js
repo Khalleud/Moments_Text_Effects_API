@@ -1,6 +1,5 @@
 const express = require('express');
 const textEffectRouter = express.Router();
-const textEffectController = require('../controllers/textEffectController');
 const {timeParser, resolutionParser, coordinatesParser} = require('../utils/Parser');
 const {textEffectCommandBuilder} = require('../builders/textEffectBuilder')
 
@@ -39,14 +38,14 @@ textEffectRouter.post('/', validateParams , (req, res) => {
     const text = req.body.text;
     try {
     let textEffectCommand = new textEffectCommandBuilder()
-                                .setVideoInput(video['Input video path'])
-                                .setStartTime(timeParser(text['Start Time']), timeParser(text['End Time']) )
-                                .setTextString(text['Text String'])
-                                .setFontColor(text['Font Color'])
-                                .setFontSize(text['Font Size'])
-                                .setXY(coordinatesParser(text['X, Y'])[0], coordinatesParser(text['X, Y'])[1])
-                                .setVideoOutput(video['Output video path'])
-                                .build()
+        .setVideoInput(video['Input video path'])
+        .setStartTime(timeParser(text['Start Time']), timeParser(text['End Time']) )
+        .setTextString(text['Text String'])
+        .setFontColor(text['Font Color'])
+        .setFontSize(text['Font Size'])
+        .setXY(coordinatesParser(text['X, Y'])[0], coordinatesParser(text['X, Y'])[1])
+        .setVideoOutput(video['Output video path'])
+        .build()
     console.log(textEffectCommand);
     console.log(textEffectCommand.toString());
     res.status(200).send({

@@ -15,7 +15,7 @@ describe('POST /textEffect', () => {
                 "Output video path": "test_output1.mp4"},
 
             "text":{
-                "Text String": 'I\’m sOoOo good at this game! xD', 
+                "Text String": 'I’m sOoOo good at this game! xD', 
                 "X, Y": "200, 100", 
                 "Font Size": "64",
                 "Font Color": "0xFFFFFF", 
@@ -41,7 +41,7 @@ describe('POST /textEffect', () => {
                "Output video path": "test_output1.mp4"},
 
            "text":{
-               "Text String": 'I\’m sOoOo good at this game! xD', 
+               "Text String": 'I’m sOoOo good at this game! xD', 
                "X, Y": "200, 100", 
                "Font Size": "64",
                "Font Color": "0xFFFFFF", 
@@ -66,7 +66,7 @@ describe('POST /textEffect', () => {
                "Output video path": "test_output1.mp4"},
 
            "text":{
-               "Text String": 'I\’m sOoOo good at this game! xD', 
+               "Text String": 'I’m sOoOo good at this game! xD', 
                "X, Y": "200, 9999", 
                "Font Size": "64",
                "Font Color": "0xFFFFFF", 
